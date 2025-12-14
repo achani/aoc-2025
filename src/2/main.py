@@ -16,10 +16,6 @@ def find_max(num):
   return first_half if second_half >= first_half else first_half - 1
 
 
-with open("input.txt","r") as f:
-  id_ranges = [(pair[0],pair[1]) for pair in [rng.split('-') for rng in f.read().split(',')]]
-
-
 def sum_repeating_ids_in_range(start,end):
   ans = 0 
   for num in range(int(start), int(end)+1):
@@ -54,6 +50,10 @@ def solve_part2():
     start, end = rng
     ans += sum_repeating_ids_in_range(start,end)
   return ans
+
+
+with open("input.txt","r") as f:
+  id_ranges = [(pair[0],pair[1]) for pair in [rng.split('-') for rng in f.read().split(',')]]
 
 
 print(solve_part1())
